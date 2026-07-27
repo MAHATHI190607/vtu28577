@@ -1,0 +1,16 @@
+import java.util.function.Function;
+public class HigherOrderFunctionExample {
+    public static void processOrder(double amount, Function<Double, Double> operation) {
+        double finalAmount = operation.apply(amount);
+        System.out.println("Final Order Amount: " + finalAmount);
+    }
+    public static void main(String[] args) {
+        double orderAmount = 1000;
+        // Apply 10% discount
+        processOrder(orderAmount, amount -> amount - (amount * 0.10));
+        // Apply 20% discount
+        processOrder(orderAmount, amount -> amount - (amount * 0.20));
+        // No discount
+        processOrder(orderAmount, amount -> amount);
+    }
+}
