@@ -1,0 +1,26 @@
+import java.util.*;
+import java.util.function.Function;
+
+public class Main {
+
+    // Higher-order function
+    static int transformSalary(int salary, Function<Integer, Integer> operation) {
+        return operation.apply(salary);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+
+        // Function to increase salary by 10%
+        Function<Integer, Integer> increase = s -> (int)(s * 1.10);
+
+        for (int i = 0; i < N; i++) {
+            int salary = sc.nextInt();
+            System.out.print(transformSalary(salary, increase) + " ");
+        }
+
+        sc.close();
+    }
+}
